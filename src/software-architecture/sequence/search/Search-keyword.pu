@@ -10,9 +10,7 @@ activate User
 User -> SearchService: Search keyword
 
 activate SearchService
-SearchService -> SearchService: Filter search keyword
+SearchService -> SearchService:search keyword
 SearchService --> User: Display result
 
-activate User
-User -> User: Delete filter
 @enduml
