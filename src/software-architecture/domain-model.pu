@@ -23,10 +23,7 @@ object Portfolio{
   Jobs rating
   }
 object Categories{
-  3D logo
-  Video animation
-  Programming and tech
-  Graphics and desing
+  Name
   }
 object PostProject{
   Project title
@@ -36,11 +33,11 @@ object PostProject{
   UploadFil
   workType
   }
-object Jobs
+object Projects
 object Chat{
   Messages
   }
-object VideoChat
+object Files
 object Payments{
   Balance
   Amount
@@ -56,9 +53,9 @@ User --> Signup: Can
 User --> Portfolio: Has  a 
 User --> Categories: Can choose
 User --> PostProject: can 
-User --> Jobs: Can take 
+User --> Project: Can take 
 User --> Chat: Sends / resieves messages
-User --> VideoChat: Can talk in real time
+User --> Files: Can upload a file
 User --> Payments: can
 User --> Search: Can search a job 
   
@@ -67,8 +64,8 @@ User --> Search: Can search a job
 Login --> Dashboard: Access to
 Dashboard --> Portfolio:  Acces to
 Dashboard --> Chat:  Acces to
-Dashboard --> VideoChat:  Acces to
-Dashboard --> Jobs:  Acces to
+Dashboard --> Files:  Acces to
+Dashboard --> Projects:  Acces to
 Dashboard --> Categories: Acces to
 Dashboard --> Payments:  Acces to
 Dashboard --> Search:  Acces to
