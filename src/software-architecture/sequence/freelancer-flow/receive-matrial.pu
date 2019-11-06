@@ -4,13 +4,13 @@ autonumber "<b>[0]"
 skinparam monochrome true
 
 actor Freelancer
-participant JobsService
+participant CollaborationService
 
 activate Freelancer
-Freelancer -> JobsService: Receive matrial
+Freelancer -> CollaborationService: Receive matrial
 
-activate JobsService
-JobsService -> JobsService: Checking the matrial
-JobsService --> Freelancer: Confirms matrial is received
+activate CollaborationService
+CollaborationService -> CollaborationService: Checking the matrial
+CollaborationService --> Freelancer: Confirms matrial is received
 
 @enduml

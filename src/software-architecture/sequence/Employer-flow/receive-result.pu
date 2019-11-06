@@ -4,12 +4,12 @@ autonumber "<b>[0]"
 skinparam monochrome true
 
 actor Employer
-participant ProjectService
+participant CollaborationService
 
 activate Employer
-Employer -> ProjectService: Receive results
+Employer -> CollaborationService: Receive results
 
-activate ProjectService
-ProjectService -> ProjectService: Checking results
-ProjectService --> Employer: Confirms results is Received
+activate CollaborationService
+CollaborationService -> CollaborationService: Checking results
+CollaborationService --> Employer: Confirms results is Received
 @enduml
