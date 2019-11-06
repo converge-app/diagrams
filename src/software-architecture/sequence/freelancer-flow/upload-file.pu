@@ -4,12 +4,12 @@ autonumber "<b>[0]"
 skinparam monochrome true
 
 actor Employer
-participant ProjectService
+participant FilesService
 
 activate Employer
-Employer -> ProjectService: Upload file
+Employer -> FilesService: Upload file
 
-activate ProjectService
-ProjectService -> ProjectService: Uploading file
-ProjectService --> Employer: Confirms file is uploaded
+activate FilesService
+FilesService -> FilesService: Uploading file
+FilesService --> Employer: Confirms file is uploaded
 @enduml

@@ -4,12 +4,12 @@ autonumber "<b>[0]"
 skinparam monochrome true
 
 actor Freelancer
-participant JobsService
+participant BiddingService
 
 activate Freelancer
-Freelancer -> JobsService: Delete my bid
+Freelancer -> BiddingService: Delete my bid
 
-activate JobsService
-JobsService -> JobsService: Checking the bid
-JobsService --> Freelancer: Confirms bid is deleted
+activate BiddingService
+BiddingService -> BiddingService: Checking the bid
+BiddingService --> Freelancer: Confirms bid is deleted
 @enduml

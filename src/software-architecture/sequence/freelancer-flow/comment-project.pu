@@ -4,13 +4,13 @@ autonumber "<b>[0]"
 skinparam monochrome true
 
 actor Freelancer
-participant JobsService
+participant CollaborationService
 
 activate Freelancer
-Freelancer -> JobsService: comment on a project
+Freelancer -> CollaborationService: comment on a project
 
-activate JobsService
-JobsService -> JobsService: Save comment
-JobsService --> Freelancer: Confirms comment is added
+activate CollaborationService
+CollaborationService -> CollaborationService: Save comment
+CollaborationService --> Freelancer: Confirms comment is added
 
 @enduml
