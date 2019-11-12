@@ -1,0 +1,48 @@
+@startuml
+
+!function service($name)
+
+!$service = "Service"
+!$application = "Application"
+!$database = "Database"
+
+!$serviceName = $name + $service
+node $serviceName {
+    !$applicationName = $name + $application
+    node $applicationName [
+            <<ExecutionEnvironment>>
+            <b>ASP.NET Core Web API
+            ---
+            $applicationName
+        ]
+
+    !$databaseName = $name + $database
+    database $databaseName [
+            <<ExecutionEnvironment>>
+            <b>MongoDB
+            ---
+            $databaseName
+        ]
+
+        $applicationName --(0 $databaseName
+
+}
+Træfik --(0 $serviceName
+
+!endfunction
+
+cloud converge-cluster {
+    node Træfik {
+
+    }
+
+    service("Audit")
+    service("Authentication")
+    service("Biddings")
+    service("Broker")
+    service("Chat")
+    service")
+
+}
+
+@enduml
