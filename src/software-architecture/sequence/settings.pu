@@ -5,12 +5,12 @@ skinparam monochrome true
 
 actor User
 
-participant Settingsservice
+participant ProfilService
 
 activate User
-User ->  Settingsservice: Change account settings
+User ->  ProfilService: Change account settings
 
-activate  Settingsservice
- Settingsservice ->  Settingsservice: Save and apply new settings
- Settingsservice --> User: Comfirms account settings 
+activate  ProfilService
+ ProfilService ->  ProfilService: Save and apply new settings
+ ProfilService --> User: Comfirms account settings 
 @enduml
