@@ -1,0 +1,21 @@
+@startuml
+hide footbox
+autonumber "<b>[0]"
+skinparam monochrome true
+
+actor Admin
+participant Tracing 
+participant Monitoring 
+participant Metrics
+
+activate Admin
+Admin -> Tracing: Tracing a request
+Admin -> Monitoring: Monitoring a service
+Admin -> Metrics: Monitoring health of the system
+
+activate Tracing
+Tracing -> Monitoring: Storing 
+
+
+
+@enduml
