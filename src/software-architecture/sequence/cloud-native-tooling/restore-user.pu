@@ -4,14 +4,14 @@ autonumber "<b>[0]"
 skinparam monochrome true
 
 actor Admin
-participant Authenticate
+participant UserService
 
 activate Admin
-Admin -> Authenticate: Restore a user
+Admin -> UserService: Restore a user
 
-activate Authenticate
-Authenticate -> Authenticate: Checking for user
-Authenticate --> Admin: Confirms user is restored
+activate UserService
+UserService -> UserService: Checking for user
+UserService --> Admin: Confirms user is restored
 
 
 @enduml

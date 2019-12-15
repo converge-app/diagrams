@@ -4,14 +4,14 @@ autonumber "<b>[0]"
 skinparam monochrome true
 
 actor Admin
-participant ReportsService
+participant UserService
 
 activate Admin
-Admin -> ReportsService: see user reports
+Admin -> UserService: see user reports
 
-activate ReportsService
-ReportsService -> ReportsService: Checking user reports
-ReportsService --> Admin: Something is wrong
+activate UserService
+UserService -> UserService: Checking user reports
+UserService --> Admin: Something is wrong
 
 
 @enduml
