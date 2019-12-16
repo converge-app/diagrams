@@ -4,7 +4,9 @@ skinparam rectangle {
 	roundCorner 25
   
 }
+
 skinparam monochrome true
+top to bottom direction
 package "Converge workflows" {
 rectangle "Higher order React component" as Converge {
 	rectangle "User interface \n React component" as sa 
@@ -27,15 +29,16 @@ rectangle "New State" as newState
 rectangle "Http request" as http
 rectangle "Http response" as response
 
+  sa --> request
+  request --> http
+  http --> service
+  response <-- service
+  redux <-- response
+  newState <-- redux
+  Converge <-- newState
+  sa --> action
+  action --> redux
 
-sa --> request
-sa --> action
-request --> http
-http --> service
-service -up-> response
-response -up-> redux
-action --> redux
-redux -up-> newState
-newState -up-> Converge
+
 }
 @enduml
