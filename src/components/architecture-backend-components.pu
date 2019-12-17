@@ -1,25 +1,45 @@
-@startuml BackendComponents 
+@startuml Components 
 
 skinparam BackgroundColor transparent
 skinparam Monochrome true
 skinparam shadowing false
 
-!include Components.iuml
+package "Component Converge-system" as cp {
 
-note bottom of gateway : Gateway is connected to all services
+[Audit-service] as audit
+[Users-service] as users
+[Authentication-service] as auth
+[Projects-service] as projects
+[Broker-service] as broker
+[Collaboration-service] as collaboration
+[Files-service] as files
+[Payments-service] as payments
+[Profile-service] as profiles
+[Client] as client
+[Gateway-service] as gateway
+[Bidding-service] as bidding
+[Chat-service] as chat
 
-auth --> users                  
-projects --> workspace     
-payments --> accounts           
-bidding --> projects
-bidding --> audit
-workspace --> audit
-payments --> audit
-users --> audit
-
-bidding --> users
-chat --> users
+auth --> users
 profiles --> users
 projects --> users
+collaboration --> projects
+broker --> collaboration
+profiles --> files
+collaboration --> files
+client --> gateway
+bidding --> users
+bidding --> projects
+broker --> payments
+users --> payments
+users --> chat
+auth --> audit
+collaboration --> audit
+payments --> audit
+
+note right of gateway : Connects to all other services
+
+
+}
 
 @enduml
