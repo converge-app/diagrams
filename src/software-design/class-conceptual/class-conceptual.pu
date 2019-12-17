@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam classAttributeIconSize 0
+ 
+package "class conceptual" {
+    class Startup {
+
+    }
+
+    class Program {
+
+    }
+
+    class Controller {
+
+    }
+
+    class Service {
+
+    }
+
+    class Repository {
+
+    }
+}
+
+@enduml
