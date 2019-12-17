@@ -6,54 +6,113 @@ skinparam componentStyle uml2
 left to right direction
 package "deployment diagram" as sa {
 
-node "<<device>>\n PC " as presentation {
+node "<<device>>\n Client " as presentation {
 node "<<execution Environment>>\n  React"{
   
-[Login] 
-[Signup]
+[Authentication] 
 [Search]
-[portfolio]
+[Portfolio]
 [Chat]
 [Dashboard]
 [Settings]
 [Categories]
 [Payments]
 [Video chat]
-[Jobs]
+[Text chat]
+[Projects]
   
 }
 }
 node "<<device>>\n Server" as webAPI{
-  
-node  "<<execution Environment>>\n  ASP.NET Core Web API" {
-  
-  [Userservice] 
-  [SearchService] 
-  [PortfolioService]
-  [ChatService]
-  [DashboardService] 
-  [SettingsService] 
-  [CategoriesService]
-  [PaymentsService]
-  [VideoChatService] 
-  [JobsService]
-  
-  
-  }
-  }
-node "<<device>>\n Server" as mongodb{
-node  "<<execution Environment>>\n  Mongo Database" {
-  
-  [Data persistance] 
 
-  }
-  }
-  
+node  "<<execution Environment>>\n  Traefik" as t {
+  [Ingress]
 }
-presentation --> webAPI
-webAPI --> mongodb
-webAPI -left-> presentation
-presentation ----[hidden]-->webAPI
-webAPI --[hidden]---->mongodb
+  
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 1 {
+  [SearchService]
+}
+node  "<<execution Environment>>\n  Mongo Database" as m1 {
+  [Data persistance] as d1
+}
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 2 {
+  [Userservice]
+}
+node  "<<execution Environment>>\n  Mongo Database" as m2 {
+  [Data persistance] as d2
+}
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 3 {
+  [PortfolioService]
+}
+node  "<<execution Environment>>\n  Mongo Database" as m3 {
+  [Data persistance] as d3
+}
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 4 {
+  [ChatService]
+}
+node  "<<execution Environment>>\n  Mongo Database" as m4 {
+  [Data persistance] as d4
+}
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 5 {
+  [DashboardService] 
+}
+node  "<<execution Environment>>\n  Mongo Database" as m5 {
+  [Data persistance]  as d5
+}
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 6 {
+  [SettingsService] 
+}
+node  "<<execution Environment>>\n  Mongo Database" as m6 {
+  [Data persistance]  as d6
+}
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 7 {
+  [CategoriesService]
+}
+node  "<<execution Environment>>\n  Mongo Database" as m7 {
+  [Data persistance]  as d7
+}
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 8 {
+  [PaymentsService]
+}
+node  "<<execution Environment>>\n  Mongo Database" as m8 {
+  [Data persistance]  as d8
+}
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 9 {
+  [VideoChatService] 
+}
+node  "<<execution Environment>>\n  Mongo Database" as m9 {
+  [Data persistance]  as d9
+}
+node  "<<execution Environment>>\n  ASP.NET Core Web API" as 10 {
+  [ProjectsService]
+}
+node  "<<execution Environment>>\n  Mongo Database" as m10 {
+  [Data persistance]  as d10
+}
+}
+
+1 -- m1
+2 -- m2
+3 -- m3
+4 -- m4
+5 -- m5
+6 -- m6
+7 -- m7
+8 -- m8
+9 -- m9
+10 -- m10
+  
+t -- 1
+t -- 2
+t -- 3
+t -- 4
+t -- 5
+t -- 6
+t -- 7
+t -- 8
+t -- 9
+t -- 10
+
+presentation -- t
 
 @enduml

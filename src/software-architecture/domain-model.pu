@@ -1,75 +1,79 @@
 @startuml
 
 skinparam monochrome true
+allowmixing
 
-package "Domænemodel Converge" {
-object User
-object Login{
-   Email
-  Password 
-  
-  }
+package "Domainmodel Converge" {
 
-object Signup{
-   Fornavn
-  Efternavn
-  Email
- Password 
-  }
-object Portfolio{
-  Name
-  Skills
-  Experience
-  Jobs rating
-  }
-object Categories{
-  Name
-  }
-object PostProject{
-  Project title
-  Category
-  Subcategory
-  Description
-  UploadFil
-  workType
-  }
-object Projects
-object Chat{
-  Messages
-  }
-object Files
-object Payments{
-  Balance
-  Amount
-  Deposit
-  Withdraw
-  }
-object Search
-object Dashboard
+actor User
+actor Administrator
+actor System
+
+object Audit {
+  trail
+}
+object Authentication {
+  email
+  password
+}
+object Authorization {
+  role
+}
+object Project {
+  freelancer
+  employer
+  bids
+  amount
+  date
+}
+object Chat {
+  messages
+}
+object Collaboration {
+  messages
+  files
+  rating
+}
+object Payments {
+  accounts
+}
+object Profile {
+  email
+  name
+  rating
+  skills
+  experience
+  description
+}
+object Monitoring {
+  tracing
+  metrics
+  logging
+}
+object Administration
+
+User -up-> Authentication: Can authenticate  
+User -up-> Authorization: can authorize
+Authentication --> Audit: logs trail
+
+User -left-> Chat: send message
+Chat -right-> User: send message
+User --> Project: Can bid or create project
+Project --> Collaboration: Can collaborate
+User --> Collaboration: Can interact
+Collaboration --> Payments: Can facilitate payments
+
+User -right-> Profile: Has a
+
+Payments -left-> Audit: Can log trail
+Collaboration -left-> Audit: Can log trail
+
+Administrator --> Monitoring: Can monitor
+Monitoring --> System: can monitor system
+Administrator --> Administration: Can administrator
+Administration --> User: Can administrate user
 
 
-User --> Login: Has a
-User --> Signup: Can
-User --> Portfolio: Has  a 
-User --> Categories: Can choose
-User --> PostProject: can 
-User --> Project: Can take 
-User --> Chat: Sends / resieves messages
-User --> Files: Can upload a file
-User --> Payments: can
-User --> Search: Can search a job 
-  
-
-
-Login --> Dashboard: Access to
-Dashboard --> Portfolio:  Acces to
-Dashboard --> Chat:  Acces to
-Dashboard --> Files:  Acces to
-Dashboard --> Projects:  Acces to
-Dashboard --> Categories: Acces to
-Dashboard --> Payments:  Acces to
-Dashboard --> Search:  Acces to
-Dashboard --> PostProject:  Acces to
   
 }
 
