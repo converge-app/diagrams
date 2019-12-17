@@ -5,9 +5,9 @@ pakke diagram
  skinparam monochrome true
  top to bottom direction
 
-package "pkg Converge Classes"{
+package "pkg Converge-SPA Classes"{
   
-  package "Converge"{
+  package "Converge-SPA"{
    package Services[
      <&folder> + authentication.service 
      <&folder> + bidding.service 

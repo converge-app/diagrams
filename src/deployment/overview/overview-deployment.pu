@@ -1,5 +1,8 @@
 @startuml
 
+skinparam monochrome true
+skinparam classAttributeIconSize 0
+
 !function service($name)
 
 !$service = "Service"
@@ -24,14 +27,14 @@ node $serviceName {
             $databaseName
         ]
 
-        $applicationName --(0 $databaseName
+        $applicationName -down-(0 $databaseName
 
-}
 Træfik --(0 $serviceName
+}
 
 !endfunction
+package "deployment Converge-cluster" {
 
-cloud converge-cluster {
     node Træfik {
 
     }
@@ -41,8 +44,12 @@ cloud converge-cluster {
     service("Biddings")
     service("Broker")
     service("Chat")
-    service")
 
+    service("Collaboration")
+    service("Files")
+    service("Payments")
+    service("Profiles")
+    service("Projects")
+    service("Users")
 }
-
 @enduml
