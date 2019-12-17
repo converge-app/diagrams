@@ -5,7 +5,7 @@ skinparam componentStyle uml2
 left to right direction 
 
 
-package "Komponent diagram" as ma{
+package "Component relations to frontend" as ma{
 folder "Presentation" as ts{
   
 [Login]
@@ -37,7 +37,6 @@ cloud {
   [ProjectsService] -up- ProjectsAPI
   
   
-  }
 
   [Login] --( userAPI
   [Signup] --( userAPI
@@ -63,6 +62,7 @@ cloud {
   [FilesService] --> [Files persistering]
   [ProjectsService] --> [Projects persistering]
   
+  }
 
 }
 
